@@ -2,6 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { links } from '../data/links';
 const prisma = new PrismaClient();
 
+// 新しいデータベースレコードを作成する処理。
 async function main() {
   await prisma.user.create({
     data: {
@@ -15,6 +16,8 @@ async function main() {
   });
 }
 
+// 実行
+// コマンド> npx prisma db seed
 main()
   .catch((e) => {
     console.error(e);

@@ -1,8 +1,12 @@
+// PSL（Prisma Schema Language）で書かれている
+// テーブル作成コマンド> npx prisma db push
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+// データモデルに基づいてPrisma Clientを生成することを指定
 generator client {
   provider = "prisma-client-js"
 }
