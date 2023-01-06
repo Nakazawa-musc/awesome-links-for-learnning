@@ -1,6 +1,24 @@
 import { makeSchema, connectionPlugin } from 'nexus'
 import { join } from "path";
 import * as types from "./types";
+import { gql } from 'apollo-server-micro'
+
+export const typeDefs = gql`
+  type Link {
+    id: String
+    title: String
+    description: String
+    url: String
+    category: String
+    imageUrl: String
+    users: [String]
+  }
+
+  # すべてのリンクを返すクエリ
+  type Query {
+    links: [Link]!
+  }
+`
 
 export const schema = makeSchema({
   types,
