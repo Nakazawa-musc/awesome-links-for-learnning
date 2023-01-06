@@ -2,14 +2,14 @@ import { ApolloServer } from 'apollo-server-micro'
 import Cors from 'micro-cors'
 import { createContext } from '../../grahpql/context'
 import { resolvers } from '../../grahpql/resolvers'
-import { typeDefs } from '../../grahpql/schema'
+import { schema } from '../../grahpql/schema'
 
 const cors = Cors()
 
 // スキーマとリゾルバをパラメータとして、新しいapolloServerインスタンスを作成。
 // データベースからデータを返すようにコンテキストを含める。
 const apolloServer = new ApolloServer({
-  typeDefs,
+  schema,
   resolvers,
   context: createContext,
 })
